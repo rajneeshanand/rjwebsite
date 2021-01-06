@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+.container img{
+    width: 220px;
+    height: 220px;
+
+}
+
+*{
+    margin: auto;
+    font-family: 'Gugi', cursive;
+}
+.h1edit h1{
+    text-align: center;
+}
