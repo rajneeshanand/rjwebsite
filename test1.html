@@ -384,8 +384,8 @@ window.addEventListener("load", renderQuestion, false);
 			<script type="text/javascript">
 
 			var testname="mains01";
-			
 			var gamer='anonymous';
+			var correctAnswers=0;
 			var xhttp = new XMLHttpRequest();
 			const startGame = () => {
 				var name = String(document.getElementById('userName').value);
@@ -394,7 +394,7 @@ window.addEventListener("load", renderQuestion, false);
 					document.getElementById('starter').style.display = 'none';
 					console.log("Game started by " + name);
 					gamer = name;
-					
+					countDown(200,"status");
 					//window.location.href = "teststart.html";
 				}else{
 					alert("!!!!Plese Enter your name Properly!!!!!")
@@ -434,14 +434,6 @@ window.addEventListener("load", renderQuestion, false);
 							test.innerHTML = '<br><br><h1 style="color:red;font-family:arial;">!! Test Completed !!</h1>';
 							test.innerHTML = "<h2>"+correct+" of "+questions.length+" questions correct</h2>";
 							_("test_status").innerHTML ="Test Completed  RESULTS:   Attempted  :   "+overall+"  Wrong  : "+wrong+"  Not Attempted  :"+na;
-							 function visitPage(){
-									window.location.href="teststart.html";
-								}
-							}
-							
-							secs--;
-							var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
-							}
 							$.post('./server/game.php',{
 								gamer : gamer,
 								testname: testname,
@@ -450,6 +442,15 @@ window.addEventListener("load", renderQuestion, false);
 							()=>{
 								console.log("recorded");
 							});
+							 function visitPage(){
+									window.location.href="teststart.html";
+								}
+							}
+							
+							secs--;
+							var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
+							}
+
 							
 							
 
@@ -460,10 +461,10 @@ window.addEventListener("load", renderQuestion, false);
 			<button id="submits" onclick="visitPage();">Visit Page Now</button>
 			<div id="quiz"></div>
 					<div  id="status" ></div>
-					<script type="text/javascript">countDown(200,"status");
+					<!--<script type="text/javascript">countDown(200,"status");
 					
                        
-                    </script>
+                    </script>-->
 
 
 					   <script>
